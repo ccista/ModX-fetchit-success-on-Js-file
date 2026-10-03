@@ -1,3 +1,21 @@
+/****** Fancybox 5 *******/
+document.addEventListener('fetchit:success', () => {
+    setTimeout(() => {
+        const currentModal = Fancybox.getInstance();
+
+        if (currentModal) {
+            currentModal.on('destroy', () => {
+                Fancybox.show([{ src: '#thank-modal', type: 'inline' }]);
+            });
+
+            currentModal.close();
+        } else {
+            Fancybox.show([{ src: '#thank-modal', type: 'inline' }]);
+        }
+    }, 1000);
+});
+
+/****** magnific *******/
 document.addEventListener('fetchit:success', ({ detail }) => {
    $.magnificPopup.close(); // Close popup that is currently opened (shorthand)
    setTimeout(function(){
